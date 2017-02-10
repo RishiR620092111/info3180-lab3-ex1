@@ -1,0 +1,24 @@
+import smtplib
+
+from_addr = 'rishi.info3180@gmail.com'
+to_addr = 'rishi.ramsamooj96@gmail.com'
+
+message = """From: From Rishi <rishi.info3180@gmail.com>
+To: To Rishi <rishi.ramsamooj96@gmail.com>
+Subject: SMTP e-mail test
+
+This is a test e-mail message.
+"""
+
+message_to_send = message.format(from_addr, to_addr, message)
+
+# Credentials (if needed)
+username = 'rishi.info3180@gmail.com'
+password = ''
+
+# The actual mail send
+server = smtplib.SMTP('smtp.gmail.com:587')
+server.starttls()
+server.login(username, password)
+server.sendmail(from_addr, to_addr, message_to_send)
+server.quit() 
